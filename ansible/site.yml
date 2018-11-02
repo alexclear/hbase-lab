@@ -1,0 +1,28 @@
+- hosts: hdfs-hosts
+  become: yes
+  roles:
+  - role: hosts-nodes
+  - role: hadoop
+  - role: hbase
+  - role: phoenix
+
+- hosts: hdfs-journalnodes
+  become: yes
+  roles:
+  - role: hdfs-journalnode
+
+- hosts: zookeepers
+  become: yes
+  roles:
+  - role: zookeeper
+
+- hosts: hdfs-namenodes
+  become: yes
+  roles:
+  - role: hdfs-namenode
+  - role: hdfs-zkfc
+
+- hosts: hdfs-datanodes
+  become: yes
+  roles:
+  - role: hdfs-datanode

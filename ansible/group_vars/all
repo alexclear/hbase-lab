@@ -1,0 +1,17 @@
+hdfs_hosts_group_name: hdfs-hosts
+hdfs_nameservice_id: test
+zookeeper_quorum: hbase1,hbase2,hbase3
+namenode_1: hbase1
+namenode_2: hbase2
+journalnode_1: hbase1
+journalnode_2: hbase2
+journalnode_3: hbase3
+yarn_resourcemanager: hbase1
+yarn_timelineservice_hostname: hbase1
+jobhistory_host: hbase1
+hbase_jmx_monitorpass: UyohS6owai
+hbase_jmx_controlpass: ahroh3eiGh
+zookeeper_server_1: hbase1
+zookeeper_server_2: hbase2
+zookeeper_server_3: hbase3
+hdfs_namenodes_group_name: hdfs-namenodes
