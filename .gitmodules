@@ -34,3 +34,12 @@
 [submodule "ansible/roles/runit"]
 	path = ansible/roles/runit
 	url = https://github.com/kofonfor/ansible-role-runit.git
+[submodule "ansible/roles/hbase-master"]
+	path = ansible/roles/hbase-master
+	url = https://github.com/kofonfor/ansible-role-hbase-master.git
+[submodule "ansible/roles/hbase-lzo"]
+	path = ansible/roles/hbase-lzo
+	url = https://github.com/kofonfor/ansible-role-hbase-lzo.git
+[submodule "ansible/roles/hbase-regionserver"]
+	path = ansible/roles/hbase-regionserver
+	url = https://github.com/kofonfor/ansible-role-hbase-regionserver.git

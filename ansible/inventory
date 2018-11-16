@@ -39,3 +39,13 @@ hbase2
 hbase3
 hbase4
 hbase5
+
+[hbase-masters:children]
+hbase1
+hbase2
+
+[hbase-regionservers:children]
+hbase2
+hbase3
+hbase4
+hbase5
