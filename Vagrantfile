@@ -96,6 +96,7 @@ Vagrant.configure("2") do |config|
     hbase5.vm.provision "shell", inline: "apt-get install -y python"
     hbase5.vm.provision "ansible" do |ansible|
       ansible.playbook = "ansible/site.yml"
+      ansible.config_file = "ansible/ansible.cfg"
       ansible.inventory_path = "ansible/inventory"
       ansible.become = true
       ansible.limit = "all"
