@@ -9,15 +9,9 @@ $HBASE5_IP = "172.16.137.6"
 
 ANSIBLE_RAW_SSH_ARGS = []
 
-ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase1/virtualbox/private_key "
-ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase2/virtualbox/private_key "
-ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase3/virtualbox/private_key "
-ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase4/virtualbox/private_key "
-ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase5/virtualbox/private_key "
-
 Vagrant.configure("2") do |config|
   config.vm.define "hbase1" do |hbase1|
-    hbase1.vm.box = "ubuntu/bionic64"
+    hbase1.vm.box = "generic/ubuntu1804"
     hbase1.vm.hostname = "hbase1"
     hbase1.vm.network "private_network", ip: $HBASE1_IP
 
@@ -29,11 +23,18 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cableconnected2", "on"]
     end
 
+    hbase1.vm.provider :libvirt do |v, override|
+      v.cpu_mode = 'custom'
+      v.cpu_model = 'kvm64'
+      v.cpus = 4
+      v.memory = 8192
+    end
+
     hbase1.vm.provision "shell", inline: "apt-get install -y python"
   end
 
   config.vm.define "hbase2" do |hbase2|
-    hbase2.vm.box = "ubuntu/bionic64"
+    hbase2.vm.box = "generic/ubuntu1804"
     hbase2.vm.hostname = "hbase2"
     hbase2.vm.network "private_network", ip: $HBASE2_IP
 
@@ -45,11 +46,18 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cableconnected2", "on"]
     end
 
+    hbase2.vm.provider :libvirt do |v, override|
+      v.cpu_mode = 'custom'
+      v.cpu_model = 'kvm64'
+      v.cpus = 4
+      v.memory = 8192
+    end
+
     hbase2.vm.provision "shell", inline: "apt-get install -y python"
   end
 
   config.vm.define "hbase3" do |hbase3|
-    hbase3.vm.box = "ubuntu/bionic64"
+    hbase3.vm.box = "generic/ubuntu1804"
     hbase3.vm.hostname = "hbase3"
     hbase3.vm.network "private_network", ip: $HBASE3_IP
 
@@ -61,11 +69,18 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cableconnected2", "on"]
     end
 
+    hbase3.vm.provider :libvirt do |v, override|
+      v.cpu_mode = 'custom'
+      v.cpu_model = 'kvm64'
+      v.cpus = 4
+      v.memory = 8192
+    end
+
     hbase3.vm.provision "shell", inline: "apt-get install -y python"
   end
 
   config.vm.define "hbase4" do |hbase4|
-    hbase4.vm.box = "ubuntu/bionic64"
+    hbase4.vm.box = "generic/ubuntu1804"
     hbase4.vm.hostname = "hbase4"
     hbase4.vm.network "private_network", ip: $HBASE4_IP
 
@@ -77,20 +92,44 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--cableconnected2", "on"]
     end
 
+    hbase4.vm.provider :libvirt do |v, override|
+      v.cpu_mode = 'custom'
+      v.cpu_model = 'kvm64'
+      v.cpus = 4
+      v.memory = 8192
+    end
+
     hbase4.vm.provision "shell", inline: "apt-get install -y python"
   end
 
   config.vm.define "hbase5" do |hbase5|
-    hbase5.vm.box = "ubuntu/bionic64"
+    hbase5.vm.box = "generic/ubuntu1804"
     hbase5.vm.hostname = "hbase5"
     hbase5.vm.network "private_network", ip: $HBASE5_IP
 
     hbase5.vm.provider :virtualbox do |v, override|
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase1/virtualbox/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase2/virtualbox/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase3/virtualbox/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase4/virtualbox/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase5/virtualbox/private_key "
       v.gui = false
       v.customize ["modifyvm", :id, "--cpus", 4]
       v.customize ["modifyvm", :id, "--memory", 8192]
       v.customize ["modifyvm", :id, "--cableconnected1", "on"]
       v.customize ["modifyvm", :id, "--cableconnected2", "on"]
+    end
+
+    hbase5.vm.provider :libvirt do |v, override|
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase1/libvirt/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase2/libvirt/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase3/libvirt/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase4/libvirt/private_key "
+      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase5/libvirt/private_key "
+      v.cpu_mode = 'custom'
+      v.cpu_model = 'kvm64'
+      v.cpus = 4
+      v.memory = 8192
     end
 
     hbase5.vm.provision "shell", inline: "apt-get install -y python"
