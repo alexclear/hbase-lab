@@ -1,3 +1,19 @@
+ufw_manage_defaults: false
+openstack_hardening_apply_sshd_rules: False
+security_rhel7_enable_chrony: no
+security_rhel7_session_timeout: 0
+security_rhel7_auditd_space_left_action: SYSLOG
+security_rhel7_auditd_space_left: 75
+security_shadow_utils_create_home: ''
+ssh_compression: true
+ssh_permit_root_login: without-password
+ssh_allow_tcp_forwarding: true
+sftp_enabled: true
+ssh_use_pam: true
+sysctl_overwrite:
+  # Enable IPv4 traffic forwarding.
+  net.ipv4.ip_forward: 1
+
 hdfs_hosts_group_name: hdfs-hosts
 hdfs_nameservice_id: test
 zookeeper_quorum: hbase1,hbase2,hbase3
