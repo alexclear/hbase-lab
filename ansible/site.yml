@@ -7,7 +7,6 @@
   - role: hosts-nodes
   - role: hadoop
   - role: hbase
-  - role: phoenix
 
 - hosts: hdfs_journalnodes
   become: yes
