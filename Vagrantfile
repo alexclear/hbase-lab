@@ -31,6 +31,8 @@ Vagrant.configure("2") do |config|
     end
 
     hbase1.vm.provision "shell", inline: "apt-get install -y python"
+    hbase1.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
+    hbase1.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
   end
 
   config.vm.define "hbase2" do |hbase2|
@@ -54,6 +56,8 @@ Vagrant.configure("2") do |config|
     end
 
     hbase2.vm.provision "shell", inline: "apt-get install -y python"
+    hbase2.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
+    hbase2.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
   end
 
   config.vm.define "hbase3" do |hbase3|
@@ -77,6 +81,8 @@ Vagrant.configure("2") do |config|
     end
 
     hbase3.vm.provision "shell", inline: "apt-get install -y python"
+    hbase3.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
+    hbase3.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
   end
 
   config.vm.define "hbase4" do |hbase4|
@@ -100,6 +106,8 @@ Vagrant.configure("2") do |config|
     end
 
     hbase4.vm.provision "shell", inline: "apt-get install -y python"
+    hbase4.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
+    hbase4.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
   end
 
   config.vm.define "hbase5" do |hbase5|
@@ -108,11 +116,7 @@ Vagrant.configure("2") do |config|
     hbase5.vm.network "private_network", ip: $HBASE5_IP
 
     hbase5.vm.provider :virtualbox do |v, override|
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase1/virtualbox/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase2/virtualbox/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase3/virtualbox/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase4/virtualbox/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase5/virtualbox/private_key "
+      override.vm.synced_folder ".", "/vagrant"
       v.gui = false
       v.customize ["modifyvm", :id, "--cpus", 4]
       v.customize ["modifyvm", :id, "--memory", 8192]
@@ -121,11 +125,6 @@ Vagrant.configure("2") do |config|
     end
 
     hbase5.vm.provider :libvirt do |v, override|
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase1/libvirt/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase2/libvirt/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase3/libvirt/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase4/libvirt/private_key "
-      ANSIBLE_RAW_SSH_ARGS << " -o IdentityFile=./.vagrant/machines/hbase5/libvirt/private_key "
       v.cpu_mode = 'custom'
       v.cpu_model = 'kvm64'
       v.cpus = 4
@@ -133,13 +132,17 @@ Vagrant.configure("2") do |config|
     end
 
     hbase5.vm.provision "shell", inline: "apt-get install -y python"
-    hbase5.vm.provision "ansible" do |ansible|
+    hbase5.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
+    hbase5.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
+    hbase5.vm.provision "ansible_local" do |ansible|
       ansible.playbook = "ansible/site.yml"
       ansible.config_file = "ansible/ansible.cfg"
       ansible.inventory_path = "ansible/inventory"
       ansible.become = true
+      ansible.galaxy_role_file = "ansible/roles/requirements.yml"
+      ansible.galaxy_roles_path = "/etc/ansible/roles"
+      ansible.galaxy_command = "sudo ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path} --force"
       ansible.limit = "all"
-      ansible.raw_ssh_args = ANSIBLE_RAW_SSH_ARGS
     end
   end
 end

@@ -14,7 +14,7 @@ sysctl_overwrite:
   # Enable IPv4 traffic forwarding.
   net.ipv4.ip_forward: 1
 
-hdfs_hosts_group_name: hdfs-hosts
+hdfs_hosts_group_name: hdfs_hosts
 hdfs_nameservice_id: test
 zookeeper_quorum: hbase1,hbase2,hbase3
 namenode_1: hbase1
@@ -30,4 +30,4 @@ hbase_jmx_controlpass: ahroh3eiGh
 zookeeper_server_1: hbase1
 zookeeper_server_2: hbase2
 zookeeper_server_3: hbase3
-hdfs_namenodes_group_name: hdfs-namenodes
+hdfs_namenodes_group_name: hdfs_namenodes

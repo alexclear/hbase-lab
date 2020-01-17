@@ -1,4 +1,4 @@
-- hosts: hdfs-hosts
+- hosts: hdfs_hosts
   become: yes
   roles:
   - role: ssh-hardening
@@ -9,7 +9,7 @@
   - role: hbase
   - role: phoenix
 
-- hosts: hdfs-journalnodes
+- hosts: hdfs_journalnodes
   become: yes
   roles:
   - role: hdfs-journalnode
@@ -19,23 +19,23 @@
   roles:
   - role: zookeeper
 
-- hosts: hdfs-namenodes
+- hosts: hdfs_namenodes
   become: yes
   roles:
   - role: hdfs-namenode
   - role: hdfs-zkfc
 
-- hosts: hdfs-datanodes
+- hosts: hdfs_datanodes
   become: yes
   roles:
   - role: hdfs-datanode
 
-- hosts: hbase-masters
+- hosts: hbase_masters
   become: yes
   roles:
   - role: hbase-master
 
-- hosts: hbase-regionservers
+- hosts: hbase_regionservers
   become: yes
   roles:
   - role: hbase-regionserver

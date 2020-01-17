@@ -1,50 +1,41 @@
-[hbase1]
-hbase1 ansible_host=172.16.137.2
+hbase1 ansible_host=172.16.137.2 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase1/virtualbox/private_key
+hbase2 ansible_host=172.16.137.3 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase2/virtualbox/private_key
+hbase3 ansible_host=172.16.137.4 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase3/virtualbox/private_key
+hbase4 ansible_host=172.16.137.5 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase4/virtualbox/private_key
+hbase5 ansible_host=172.16.137.6 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase5/virtualbox/private_key
 
-[hbase2]
-hbase2 ansible_host=172.16.137.3
-
-[hbase3]
-hbase3 ansible_host=172.16.137.4
-
-[hbase4]
-hbase4 ansible_host=172.16.137.5
-
-[hbase5]
-hbase5 ansible_host=172.16.137.6
-
-[hdfs-hosts:children]
+[hdfs_hosts]
 hbase1
 hbase2
 hbase3
 hbase4
 hbase5
 
-[hdfs-journalnodes:children]
+[hdfs_journalnodes]
 hbase1
 hbase2
 hbase3
 
-[hdfs-namenodes:children]
+[hdfs_namenodes]
 hbase1
 hbase2
 
-[zookeepers:children]
+[zookeepers]
 hbase1
 hbase2
 hbase3
 
-[hdfs-datanodes:children]
+[hdfs_datanodes]
 hbase2
 hbase3
 hbase4
 hbase5
 
-[hbase-masters:children]
+[hbase_masters]
 hbase1
 hbase2
 
-[hbase-regionservers:children]
+[hbase_regionservers]
 hbase2
 hbase3
 hbase4
