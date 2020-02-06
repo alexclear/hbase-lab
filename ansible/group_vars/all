@@ -31,3 +31,4 @@ zookeeper_server_1: hbase1
 zookeeper_server_2: hbase2
 zookeeper_server_3: hbase3
 hdfs_namenodes_group_name: hdfs_namenodes
+phoenix_enabled: false
