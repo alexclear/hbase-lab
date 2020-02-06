@@ -1,5 +1,5 @@
 - src: https://github.com/kofonfor/ansible-role-hadoop.git
-  version: 1146a55c9e51e1c228d134becc2e1bc38aba18f6
+  version: 33a7e329d208ca8593fbf41cd02c4ec0cbceda45
   name: hadoop
 - src: https://github.com/dev-sec/ansible-ssh-hardening.git
   version: 75f7153a6d73cb3a4e3ee54d77d4ae90a9231245
@@ -8,7 +8,7 @@
   version: 6d5a401207c9cdc066398ea6542d5f127f0d5883
   name: os-hardening
 - src: https://github.com/kofonfor/ansible-role-hbase.git
-  version: bb2c6b64fdb7b33d35c0acc9a0300d6449cc6e6e
+  version: 85c227f9a00a86e445c095b29ef8402913d97423
   name: hbase
 - src: https://github.com/kofonfor/ansible-role-phoenix.git
   version: a9d80a976e6a119ac479096431168f1954ae827a
