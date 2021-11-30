@@ -1,8 +1,8 @@
-hbase1 ansible_host=172.16.137.2 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase1/virtualbox/private_key
-hbase2 ansible_host=172.16.137.3 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase2/virtualbox/private_key
-hbase3 ansible_host=172.16.137.4 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase3/virtualbox/private_key
-hbase4 ansible_host=172.16.137.5 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase4/virtualbox/private_key
-hbase5 ansible_host=172.16.137.6 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/hbase5/virtualbox/private_key
+hbase1 ansible_ssh_private_key_file=/home/vagrant/private_key_hbase1
+hbase2 ansible_ssh_private_key_file=/home/vagrant/private_key_hbase2
+hbase3 ansible_ssh_private_key_file=/home/vagrant/private_key_hbase3
+hbase4 ansible_ssh_private_key_file=/home/vagrant/private_key_hbase4
+hbase5 ansible_ssh_private_key_file=/home/vagrant/private_key_hbase5
 
 [hdfs_hosts]
 hbase1
