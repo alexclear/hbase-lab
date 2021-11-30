@@ -4,7 +4,6 @@
   - role: ssh-hardening
   - role: openstack-hardening
   - { role: os-hardening, os_env_umask: '022' }
-  - role: hosts-nodes
   - role: hadoop
   - role: hbase
 
