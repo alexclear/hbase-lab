@@ -1,5 +1,5 @@
 - src: https://github.com/kofonfor/ansible-role-hadoop.git
-  version: 33a7e329d208ca8593fbf41cd02c4ec0cbceda45
+  version: f383dff406755223952cabf71ede109c224b70ce
   name: hadoop
 - src: https://github.com/dev-sec/ansible-ssh-hardening.git
   version: 75f7153a6d73cb3a4e3ee54d77d4ae90a9231245
@@ -32,7 +32,7 @@
   version: 011111504f0de64fb3f5e2cfeb4efa1782a4fe0e
   name: runit
 - src: https://github.com/kofonfor/ansible-role-zookeeper.git
-  version: 665ec38616e2419308b9f217d1d10680e69bba9a
+  version: 7d7f05e36a0cb1d33591c1294442f52f4d320030
   name: zookeeper
 - src: https://github.com/kofonfor/ansible-role-hdfs-zkfc.git
   version: acfaf106c8c5e344a5231b369034bf41ac706594
