@@ -35,7 +35,7 @@
   version: 7d7f05e36a0cb1d33591c1294442f52f4d320030
   name: zookeeper
 - src: https://github.com/kofonfor/ansible-role-hdfs-zkfc.git
-  version: acfaf106c8c5e344a5231b369034bf41ac706594
+  version: d38664f0d15b6570540285acb69d5b6598aa4ed9
   name: hdfs-zkfc
 - src: https://github.com/kofonfor/ansible-role-hdfs-datanode.git
   version: 6b1ebf9e7c777bbe6e397c1d04fb38439f05b694
