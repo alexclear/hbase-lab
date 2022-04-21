@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
       v.maxmemory = 8192
     end
 
-    hbase1.vm.provision "shell", inline: "apt-get install -y python"
+    hbase1.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     hbase1.vm.provision "shell", inline: "sed -i -e '/127\.0\.2/d' /etc/hosts"
     hbase1.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
     hbase1.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
       v.maxmemory = 8192
     end
 
-    hbase2.vm.provision "shell", inline: "apt-get install -y python"
+    hbase2.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     hbase2.vm.provision "shell", inline: "sed -i -e '/127\.0\.2/d' /etc/hosts"
     hbase2.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
     hbase2.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
@@ -98,7 +98,7 @@ Vagrant.configure("2") do |config|
       v.maxmemory = 8192
     end
 
-    hbase3.vm.provision "shell", inline: "apt-get install -y python"
+    hbase3.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     hbase3.vm.provision "shell", inline: "sed -i -e '/127\.0\.2/d' /etc/hosts"
     hbase3.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
     hbase3.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
@@ -130,7 +130,7 @@ Vagrant.configure("2") do |config|
       v.maxmemory = 8192
     end
 
-    hbase4.vm.provision "shell", inline: "apt-get install -y python"
+    hbase4.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     hbase4.vm.provision "shell", inline: "sed -i -e '/127\.0\.2/d' /etc/hosts"
     hbase4.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
     hbase4.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
@@ -164,7 +164,7 @@ Vagrant.configure("2") do |config|
       v.maxmemory = 8192
     end
 
-    hbase5.vm.provision "shell", inline: "apt-get install -y python"
+    hbase5.vm.provision "shell", inline: "apt-get update && apt-get install -y python"
     hbase5.vm.provision "shell", inline: "sed -i -e '/127\.0\.2/d' /etc/hosts"
     hbase5.vm.provision "shell", inline: "sysctl net.ipv6.conf.all.disable_ipv6=1"
     hbase5.vm.provision "shell", inline: "sysctl net.ipv6.conf.default.disable_ipv6=1"
