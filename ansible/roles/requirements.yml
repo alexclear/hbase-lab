@@ -49,3 +49,6 @@
 - src: https://github.com/kofonfor/ansible-role-hbase-regionserver.git
   version: 3ecc45010faf8c7df447038d915a74c12258c64f
   name: hbase-regionserver
+- src: https://github.com/kofonfor/ansible-role-yarn-resourcemanager.git
+  version: 39710322fc0ec33db1ae799a4196983b7068e553
+  name: yarn-resourcemanager

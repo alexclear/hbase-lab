@@ -28,6 +28,11 @@
   roles:
   - role: hdfs-datanode
 
+- hosts: yarn_resourcemanagers
+  become: yes
+  roles:
+  - role: yarn-resourcemanager
+
 - hosts: hbase_masters
   become: yes
   roles:
