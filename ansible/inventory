@@ -43,3 +43,9 @@ hbase5
 
 [yarn_resourcemanagers]
 hbase1
+
+[yarn_nodemanagers]
+hbase2
+hbase3
+hbase4
+hbase5

@@ -33,6 +33,11 @@
   roles:
   - role: yarn-resourcemanager
 
+- hosts: yarn_nodemanagers
+  become: yes
+  roles:
+  - role: yarn-nodemanager
+
 - hosts: hbase_masters
   become: yes
   roles:

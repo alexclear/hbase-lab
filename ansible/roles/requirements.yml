@@ -1,5 +1,5 @@
 - src: https://github.com/kofonfor/ansible-role-hadoop.git
-  version: f383dff406755223952cabf71ede109c224b70ce
+  version: 464a4e820316b38f018071f7282d0e8f28c267cc
   name: hadoop
 - src: https://github.com/dev-sec/ansible-ssh-hardening.git
   version: 75f7153a6d73cb3a4e3ee54d77d4ae90a9231245
@@ -52,3 +52,6 @@
 - src: https://github.com/kofonfor/ansible-role-yarn-resourcemanager.git
   version: 39710322fc0ec33db1ae799a4196983b7068e553
   name: yarn-resourcemanager
+- src: https://github.com/kofonfor/ansible-role-yarn-nodemanager.git
+  version: 2f8f52bd0025f06f3e18cb2f3bb2a6832e448e92
+  name: yarn-nodemanager
